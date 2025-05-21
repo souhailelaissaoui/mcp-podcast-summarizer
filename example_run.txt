@@ -1,0 +1,91 @@
+(venv) souhailelaissaoui@Souhails-MacBook-Pro mcp_podcast_summarizer % python3 main.py
+2025-05-22 02:54:54,498 - INFO - Initializing servers...
+2025-05-22 02:54:54,498 - INFO - Initializing server podcast_summarizer...
+2025-05-22 02:54:55,413 - INFO - Server podcast_summarizer initialized successfully
+2025-05-22 02:54:55,413 - INFO - Listing available tools...
+2025-05-22 02:54:55,413 - INFO - Processing request of type ListToolsRequest
+2025-05-22 02:54:55,414 - INFO - Found 1 tools on server podcast_summarizer
+2025-05-22 02:54:55,414 - INFO - Prepared descriptions for 1 tools
+2025-05-22 02:54:55,414 - INFO - Chat session initialized successfully
+2025-05-22 02:54:55,414 - INFO - Starting chat loop. Type 'quit' or 'exit' to end the session.
+
+You: summarize https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s
+2025-05-22 02:54:57,018 - INFO - Processing user input: summarize https://www.youtube.com/watch?v=JkZ32SbD...
+2025-05-22 02:54:57,018 - INFO - Getting response from LLM...
+2025-05-22 02:54:58,462 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-22 02:54:58,463 - INFO - Received LLM response: {
+    "tool": "transcribe_audio",
+    "arguments": {
+        "url": "https://www.youtube.com/watch?v...
+
+Assistant: {
+    "tool": "transcribe_audio",
+    "arguments": {
+        "url": "https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s"
+    }
+}
+2025-05-22 02:54:58,463 - INFO - Processing LLM response: {
+    "tool": "transcribe_audio",
+    "arguments": {
+        "url": "https://www.youtube.com/watch?v...
+2025-05-22 02:54:58,463 - INFO - Detected tool call: transcribe_audio
+2025-05-22 02:54:58,463 - INFO - With arguments: {'url': 'https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s'}
+2025-05-22 02:54:58,463 - INFO - ==================================================
+2025-05-22 02:54:58,463 - INFO - EXECUTING TOOL: transcribe_audio
+2025-05-22 02:54:58,463 - INFO - ==================================================
+2025-05-22 02:54:58,464 - INFO - Processing request of type ListToolsRequest
+2025-05-22 02:54:58,465 - INFO - Found tool transcribe_audio on server podcast_summarizer, executing...
+2025-05-22 02:54:58,465 - INFO - Executing transcribe_audio with arguments: {'url': 'https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s'}
+2025-05-22 02:54:58,465 - INFO - Waiting for transcribe_audio to complete (timeout: 120.0s)...
+2025-05-22 02:54:58,466 - INFO - Processing request of type CallToolRequest
+2025-05-22 02:54:58,466 - INFO - Starting transcribe_audio with args: , kwargs: {'url': 'https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s'}
+2025-05-22 02:54:58,466 - INFO - Starting transcription for URL: https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s
+2025-05-22 02:55:06,162 - INFO - Audio downloaded successfully to temp/JkZ32SbDrlw.mp3
+2025-05-22 02:55:10,709 - INFO - Transcription completed successfully
+2025-05-22 02:55:10,709 - INFO - Successfully completed transcribe_audio
+2025-05-22 02:55:10,710 - INFO - Warning: UserWarning: FP16 is not supported on CPU; using FP32 instead
+2025-05-22 02:55:10,710 - INFO - Tool transcribe_audio executed successfully with non-dict result
+2025-05-22 02:55:10,710 - INFO - Tool execution completed with result: meta=None content=[TextContent(type='text', text='{\n  "success": true,\n  "transcript": " In this video, we\'re going to take a look at three successful podcast introductions and take away seven actionable tips that you can implement to hook your listeners. First podcast intro that we\'re going to listen to is Riverside\'s very own podcast hit publish. Let\'s take a listen. Now we\'ve got this like battle for our attention right across all social media apps across all the streaming platforms, TV, music, like every moments are attention. But what\'s so many of these platforms why is our visual attention? Tip number one is to start with a quote from the episode. Take a snippet from the upcoming episode that has exceptionally valuable information and put it before your podcast introduction with your podcast intro music underneath. By including content from the upcoming episode, it gives the listener a glimpse into what\'s to come and demonstrate the value of listening to the episode. Tip number two is to use music that will be consistent with your brand. You want to find a theme song for your show to use in your introduction. Be picky with this because it\'s the same music that you should use in promo videos and ads because you want to keep the branding consistent. Make sure the music represents the tone of your brand and the content that you are creating. Some great websites to find royalty-free music are artlist.io, mix kit and Adobe stock audio. Tip number three is to include video. You want to include some sort of visual asset to go along with your introduction for Spotify video podcasts or even YouTube. The next introduction that we will look at is from the show on purpose with Jay Shetty. Hey everyone welcome back to on purpose and I\'m more on health podcast in the world thanks to each and every one of you that come back every week to listen, learn and grow. Now this episode is a conversation with Alex Lieberman who\'s a co-founder of Morning Brew and on his podcast imposter, I think we got into some really interesting topics that I don\'t always get to dive in. I got to open up about my entrepreneurship journey. I got to talk more about social media and business. You\'re also going to hear my insights on when I feel anxiety and when I feel like an imposter. So to me this is a really deep dive into my mindset from the perspective of an interviewie and I think you\'re really going to enjoy this episode especially if you\'ve been listening along every Friday hearing my insights. So don\'t skip this one don\'t miss this one you\'re going to love it thank you for learning me your ears whether you\'re walking, running at the gym, walking your dog, cooking, whatever you\'re up to thank you for listening to on purpose. Tip number four is to pitch the upcoming episode. Make sure you show the audience your excitement about the upcoming episode. Talk about specifics that will be talked about and why you are excited to put the episode out. Tip number five is to keep it organic. There are two types of ways to do introductions. You can read your intro organically for every episode or you can have a pre-recorded intro that you insert into every episode. This is a great example of an intro that\'s read by the host every time. This gives you more flexibility with your call to actions if you have an upcoming event or you want to pitch an upcoming episode. Now let\'s listen to the indie hackers podcast because they have a great pre-recorded introduction that\'s inserted into every episode. What\'s up everybody this is court lun from indiehackers.com and you\'re listening to the indie hackers podcast. War people than ever are building cool stuff online and making a lot of money in the process. And on this show I sit down with these indie hackers to discuss the ideas, the opportunities and strategies they\'re taking advantage of so the rest of us can do the same. So tip number six is to pre-record your introduction. By having a generic pre-recorded intro you can make sure that the timing of the introduction essentials are always consistent. The host can then take over to talk about any episode specific and tip number seven is to keep it short. Remember that although you may have new listeners, you\'ll also have older listeners and people who are binging your show. So they will be hearing your introduction multiple times. You want to make sure that all of the necessary and reoccurring information is as short and snappy as possible. There you go that seven actionable tips for your podcast introduction all taken from podcasts recorded on Riverside. Let\'s do a quick recap of the tips that we\'ve mentioned. Tip number one is to start with a quote from the episode. Tip number two use music that will be consistent with your brand. Tip number three include a video asset. Tip number four pitch the upcoming episode. Tip number five keep it organic. Tip number six pre-record your introduction and tip number seven keep it short. We hope this video has given you a head start on creating an introduction that will engage in hook your listeners. Make sure to subscribe to our channel to be notified every time we post a new video. And if you want to know more about how to upgrade your podcast, then check out this playlist of videos full of tips and tricks to take your content to the next level."\n}', annotations=None)] isError=False
+2025-05-22 02:55:10,711 - INFO - Tool was executed, getting final response...
+2025-05-22 02:55:13,169 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-22 02:55:13,171 - INFO - Final response: 
+
+Tool execution result: meta=None content=[TextContent(type='text', text='In this video, the speake...
+
+Assistant: 
+
+Tool execution result: meta=None content=[TextContent(type='text', text='In this video, the speaker discusses seven actionable tips for creating an engaging podcast introduction:
+
+1. Start with a quote from the upcoming episode to give listeners a preview of the valuable content.
+
+2. Use music that is consistent with your podcast's brand and tone.
+
+3. Include a visual asset, such as a video, to accompany the audio introduction.
+
+4. Pitch the upcoming episode and explain why listeners should be excited about it.
+
+5. Keep the introduction organic by reading it live rather than using a pre-recorded intro.
+
+6. Alternatively, use a pre-recorded generic intro for consistency, then the host can add episode-specific details.
+
+7. Keep the introduction short and concise, as repeat listeners will hear it multiple times.
+
+The video provides examples from successful podcast introductions to illustrate these tips in action. The goal is to hook listeners and give them a compelling reason to continue listening to the full episode.')]
+
+You: tell me more about the value of the seventh tip? (short response)
+2025-05-22 02:55:41,197 - INFO - Processing user input: tell me more about the value of the seventh tip? (...
+2025-05-22 02:55:41,198 - INFO - Getting response from LLM...
+2025-05-22 02:55:42,267 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-22 02:55:42,267 - INFO - Received LLM response: The seventh tip to keep the podcast introduction short is valuable because:
+
+Repeat listeners will h...
+
+Assistant: The seventh tip to keep the podcast introduction short is valuable because:
+
+Repeat listeners will hear the introduction multiple times, so a concise intro prevents it from becoming repetitive or boring.
+2025-05-22 02:55:42,267 - INFO - Processing LLM response: The seventh tip to keep the podcast introduction short is valuable because:
+
+Repeat listeners will h...
+2025-05-22 02:55:42,267 - INFO - Response is not JSON, returning as is
+
+You: 
