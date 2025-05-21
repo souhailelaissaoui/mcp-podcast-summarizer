@@ -2,6 +2,49 @@
 
 Ce projet implémente un système d'analyse de podcasts utilisant le protocole MCP (Model Context Protocol) pour faciliter l'interaction entre le client et le serveur d'analyse.
 
+## Getting Started
+
+### Installation
+
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/souhailelaissaoui/mcp-podcast-summarizer.git
+   cd mcp-podcast-summarizer
+   ```
+
+2. Installez les dépendances :
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Configurez les variables d'environnement :
+   - Renommez le fichier `.env.example` en `.env` (si nécessaire)
+   - Mettez à jour les clés API dans le fichier `.env` :
+     ```
+     ANTHROPIC_API_KEY=VOTRE_CLE_API_ANTHROPIC
+     SERVER_MCP_API_KEY=VOTRE_CLE_API_MCP_SERVEUR
+     ```
+   - Assurez-vous que la clé dans `servers_config.json` correspond à votre clé serveur :
+     ```json
+     "env": {
+       "CLIENT_MCP_API_KEY": "VOTRE_CLE_API_MCP_CLIENT"
+     }
+     ```
+
+### Utilisation
+
+1. Lancez l'application :
+   ```bash
+   python main.py
+   ```
+
+2. Une fois l'interface de chat lancée, vous pouvez demander une transcription et un résumé :
+   ```
+   summarize https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s
+   ```
+
+3. Pour quitter l'application, tapez `exit` ou `quit`.
+
 ## 1. Utilisation du SDK MCP Officiel (Python)
 
 Le projet utilise le SDK MCP officiel en Python à travers plusieurs composants :
