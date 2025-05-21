@@ -2,7 +2,13 @@
 
 Ce projet implémente un système d'analyse de podcasts utilisant le protocole MCP (Model Context Protocol) pour faciliter l'interaction entre le client et le serveur d'analyse.
 
-## Getting Started
+## Table des matières
+1. [Installation et utilisation](#1-installation-et-utilisation)
+2. [Architecture du projet](#2-architecture-du-projet)
+3. [Fonctionnalités MCP](#3-fonctionnalités-mcp)
+4. [Sécurité](#4-sécurité)
+
+## 1. Installation et utilisation
 
 ### Installation
 
@@ -45,7 +51,7 @@ Ce projet implémente un système d'analyse de podcasts utilisant le protocole M
 
 3. Pour quitter l'application, tapez `exit` ou `quit`.
 
-## Architecture du Projet
+## 2. Architecture du projet
 
 ### Structure des Fichiers
 
@@ -103,7 +109,9 @@ Configuration des serveurs MCP, incluant :
 6. L'outil télécharge la vidéo et utilise Whisper pour la transcription
 7. Le résultat est renvoyé à Claude qui génère une réponse pour l'utilisateur
 
-## 1. Utilisation du SDK MCP Officiel (Python)
+## 3. Fonctionnalités MCP
+
+### 3.1 Utilisation du SDK MCP Officiel (Python)
 
 Le projet utilise le SDK MCP officiel en Python à travers plusieurs composants :
 
@@ -116,7 +124,7 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 ```
 
-## 2. Exposition d'Outils Fonctionnels
+### 3.2 Exposition d'Outils Fonctionnels
 
 Le système expose un outil fonctionnel pour l'analyse de podcasts :
 
@@ -135,7 +143,7 @@ Cet outil exécute deux fonctions spécifiques :
 - Téléchargement audio via `yt_dlp`
 - Transcription via le modèle Whisper
 
-## 3. Implémentation des Mécanismes MCP
+### 3.3 Implémentation des Mécanismes MCP
 
 ### Liste des Outils (list_tools)
 ```python
@@ -173,7 +181,7 @@ async def execute_tool(self, tool_name, arguments, retries=2, delay=1.0, timeout
     return result
 ```
 
-## 4. Gestion des Erreurs et Exceptions
+### 3.4 Gestion des Erreurs et Exceptions
 
 Le système implémente plusieurs mécanismes de gestion d'erreurs :
 
@@ -225,7 +233,9 @@ while attempt < retries:
             await asyncio.sleep(delay)
 ```
 
-## 5. Mesures de Sécurité de Base
+## 4. Sécurité
+
+### 4.1 Mesures de Sécurité de Base
 
 Le système implémente un mécanisme d'authentification par clé API :
 
