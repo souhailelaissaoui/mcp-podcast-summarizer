@@ -1,6 +1,6 @@
 # MCP Podcast Summarizer
 
-Ce projet implémente un agent LLM (Claude 3.7) d'analyse de podcasts (vidéos youtube) utilisant le protocole MCP (Model Context Protocol) pour faciliter l'interaction entre le client et le serveur d'analyse.
+Ce projet implémente un agent LLM (Claude 3.7) d'analyse de podcasts (vidéos youtube) utilisant le protocole MCP (Model Context Protocol) pour faciliter l'interaction entre le client LLM et le serveur d'analyse (téléchargement audio et transcription).
 
 ## Table des matières
 1. [Installation et utilisation](#1-installation-et-utilisation)
