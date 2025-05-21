@@ -45,6 +45,64 @@ Ce projet implémente un système d'analyse de podcasts utilisant le protocole M
 
 3. Pour quitter l'application, tapez `exit` ou `quit`.
 
+## Architecture du Projet
+
+### Structure des Fichiers
+
+```
+├── .env                  # Variables d'environnement (API keys)
+├── .gitignore            # Fichiers à ignorer dans Git
+├── README.md             # Documentation du projet
+├── main.py               # Point d'entrée et client MCP
+├── requirements.txt      # Dépendances Python
+├── security.py           # Gestion de l'authentification
+├── server.py             # Serveur MCP et définition des outils
+├── servers_config.json   # Configuration des serveurs MCP
+├── temp/                 # Dossier temporaire pour les fichiers audio
+└── transcription.py      # Fonctions de transcription avec Whisper
+```
+
+### Description des Composants
+
+#### 1. `main.py`
+Point d'entrée principal de l'application. Ce fichier contient :
+- La classe `Configuration` pour gérer les variables d'environnement
+- La classe `Server` pour gérer les connexions aux serveurs MCP
+- La classe `Tool` pour représenter les outils disponibles
+- La classe `LLMClient` pour communiquer avec Claude (Anthropic)
+- La classe `ChatSession` pour orchestrer l'interaction entre l'utilisateur, le LLM et les outils
+
+#### 2. `server.py`
+Implémentation du serveur MCP avec FastMCP. Ce fichier définit :
+- L'outil `transcribe_audio` qui permet de télécharger et transcrire des vidéos YouTube
+- Un décorateur `handle_errors` pour la gestion des erreurs
+
+#### 3. `transcription.py`
+Contient les fonctions de traitement audio :
+- `download_audio` : télécharge l'audio d'une vidéo YouTube avec yt_dlp
+- `transcribe_audio_file` : transcrit un fichier audio avec le modèle Whisper
+
+#### 4. `security.py`
+Gère l'authentification et la sécurité :
+- Décorateur `require_api_key` pour protéger l'accès aux outils
+- Validation des clés API entre client et serveur
+
+#### 5. `servers_config.json`
+Configuration des serveurs MCP, incluant :
+- Commandes pour démarrer les serveurs
+- Arguments de ligne de commande
+- Variables d'environnement (dont les clés API)
+
+### Flux de Données
+
+1. L'utilisateur lance `main.py` qui initialise le client MCP
+2. Le client se connecte au serveur MCP défini dans `servers_config.json`
+3. Le serveur expose l'outil `transcribe_audio` via le protocole MCP
+4. L'utilisateur envoie une requête qui est analysée par Claude
+5. Si nécessaire, Claude appelle l'outil `transcribe_audio` via MCP
+6. L'outil télécharge la vidéo et utilise Whisper pour la transcription
+7. Le résultat est renvoyé à Claude qui génère une réponse pour l'utilisateur
+
 ## 1. Utilisation du SDK MCP Officiel (Python)
 
 Le projet utilise le SDK MCP officiel en Python à travers plusieurs composants :
