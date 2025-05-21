@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "podcast_summarizer": {
+      "command": "/Users/souhailelaissaoui/.local/bin/uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "mcp",
+        "run",
+        "/Users/souhailelaissaoui/Documents/work/hexadone/mcp_podcast_summarizer/server.py"
+      ],
+      "env": {
+        "CLIENT_MCP_API_KEY": "YOUR_CLIENT_MCP_API_KEY"
+      }
+    }
+  }
+}
