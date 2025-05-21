@@ -12,7 +12,7 @@ Ce projet implémente un agent LLM (Claude 3.7) d'analyse de podcasts (vidéos y
 
 ### Installation
 
-1. Clonez le dépôt :
+1. Clonez le repo :
    ```bash
    git clone https://github.com/souhailelaissaoui/mcp-podcast-summarizer.git
    cd mcp-podcast-summarizer
@@ -24,7 +24,7 @@ Ce projet implémente un agent LLM (Claude 3.7) d'analyse de podcasts (vidéos y
    ```
 
 3. Configurez les variables d'environnement :
-   - Renommez le fichier `.env.example` en `.env` (si nécessaire)
+   - Renommez le fichier `.env.example` en `.env`
    - Mettez à jour les clés API dans le fichier `.env` :
      ```
      ANTHROPIC_API_KEY=VOTRE_CLE_API_ANTHROPIC
@@ -48,8 +48,6 @@ Ce projet implémente un agent LLM (Claude 3.7) d'analyse de podcasts (vidéos y
    ```
    summarize https://www.youtube.com/watch?v=JkZ32SbDrlw&t=3s
    ```
-
-3. Pour quitter l'application, tapez `exit` ou `quit`.
 
 ## 2. Architecture du projet
 
@@ -94,10 +92,10 @@ Gère l'authentification et la sécurité :
 - Validation des clés API entre client et serveur
 
 #### 5. `servers_config.json`
-Configuration des serveurs MCP, incluant :
+Configuration du serveur MCP, incluant :
 - Commandes pour démarrer les serveurs
 - Arguments de ligne de commande
-- Variables d'environnement (dont les clés API)
+- Variables d'environnement (dont la clé API)
 
 ### Flux de Données
 
